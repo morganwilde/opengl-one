@@ -18,12 +18,15 @@ private:
     GLuint program;
     GLint attribute_coord2d;
     // == Methods ==============================================================
-    // Callbacks
-    void onDisplay();
-public:
     // Object life-cycle
     Window(int *argc, char **argv, int width, int height);
+    //Window(Window const &);
+public:
+    static Window &getSingleton(int *argc, char **argv, int width, int height);
     ~Window();
+    Window &operator=(Window const &window);
     // Display window methods
     void openDisplay();
+    // Callbacks
+    void onDisplayy();
 };
